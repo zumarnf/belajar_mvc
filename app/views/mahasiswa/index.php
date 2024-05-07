@@ -1,6 +1,14 @@
 <div class="container mt-3">
+
     <div class="row">
-        <div class="col-6">
+        <div class="col-lg-6">
+            <?php Flasher::flash(); ?>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-6">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal">
                 Tambah data mahasiswa
             </button>
@@ -34,18 +42,22 @@
             </div>
             <div class="modal-body">
                 <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
+
                     <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" class="form-control" id="nama" name="nama">
                     </div>
+
                     <div class="form-group">
                         <label for="nimp">NIMP</label>
                         <input type="number" class="form-control" id="nimp" name="nimp">
                     </div>
+
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" name="email">
                     </div>
+
                     <div class="form-group">
                         <label for="jurusan">Pilih Jurusan</label>
                         <select class="form-control" id="jurusan" name="jurusan">
@@ -53,7 +65,7 @@
                             <option value="Sistem Informasi">Sistem Informasi</option>
                             <option value="Teknik Kimia">Teknik Kimia</option>
                             <option value="Teknik Lingkungan">Teknik Lingkungan</option>
-                            
+
                         </select>
                     </div>
             </div>
