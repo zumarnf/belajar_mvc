@@ -2,26 +2,6 @@
 
 class Mahasiswa_model
 {
-    // private $mhs = [
-    //     [
-    //         "nama" => "Kazo",
-    //         "nimp" => "1223333",
-    //         "email" => "kazo@gmail.com",
-    //         "jurusan" => "Informatika"
-    //     ],
-    //     [
-    //         "nama" => "Mizu",
-    //         "nimp" => "1623523",
-    //         "email" => "mizu@gmail.com",
-    //         "jurusan" => "Informatika"
-    //     ],
-    //     [
-    //         "nama" => "Lumi",
-    //         "nimp" => "1888523",
-    //         "email" => "lumi@gmail.com",
-    //         "jurusan" => "Sistem Informasi"
-    //     ]
-    // ];
 
     private $table = 'mahasiswa';
     private $db;
@@ -62,8 +42,9 @@ class Mahasiswa_model
 
     }
 
-    public function hapusDataMahasiswa($id){
-        $query ="DELETE FROM mahasiswa WHERE id = :id";
+    public function hapusDataMahasiswa($id)
+    {
+        $query = "DELETE FROM mahasiswa WHERE id = :id";
 
         $this->db->query($query);
         $this->db->bind('id', $id);
@@ -73,4 +54,23 @@ class Mahasiswa_model
         return $this->db->rowCount();
 
     }
+
+    public function ubahDataMahasiswa($data)
+    {
+        $query = "UPDATE mahasiswa SET nama = :nama, nimp = :nimp, email = :email, jurusan = :jurusan WHERE id = :id";
+
+        $this->db->query($query);
+        $this->db->bind('nama', $data['nama']);
+        $this->db->bind('nimp', $data['nimp']);
+        $this->db->bind('email', $data['email']);
+        $this->db->bind('jurusan', $data['jurusan']);
+        $this->db->bind('id', $data['id']);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+
+    }
+
+
 }
