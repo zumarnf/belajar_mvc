@@ -6,13 +6,31 @@
         </div>
     </div>
 
-
-    <div class="row">
-        <div class="col-lg-6">
+    <div class="row mb-3">
+        <div class="col lg-6">
             <button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#formModal">
                 Tambah data mahasiswa
             </button>
-            <br></br>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <form action="<?= BASEURL; ?>/mahasiswa/cari" method="post">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Cari Mahasiswa.." name="keyword" id="keyword" autocomplete="off">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="submit" id="tombolCari">Cari</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-6">
+
+
             <h3>
                 Daftar Mahasiswa
             </h3>
@@ -48,7 +66,7 @@
             </div>
             <div class="modal-body">
                 <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
-                <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="id" id="id">
 
                     <div class="form-group">
                         <label for="nama">Nama</label>
